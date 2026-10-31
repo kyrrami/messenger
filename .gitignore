@@ -8,6 +8,10 @@ dist
 
 # Node dependencies
 node_modules
+.nuxt
+.env
+.env.*
+!.env.example
 
 # Logs
 logs
