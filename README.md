@@ -1,75 +1,42 @@
-# Nuxt Minimal Starter
+# Messenger (Nuxt 3 + PostgreSQL)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Полноценный fullstack-мессенджер с авторизацией, личными чатами и обновлением сообщений в реальном времени.
 
-## Setup
+## 🛠 Стек технологий
+- **Frontend:** Nuxt 3, Vue 3 (Composition API), Pinia, CSS
+- **Backend:** Nuxt Nitro (Node.js)
+- **База данных:** PostgreSQL (чистый SQL, без ORM)
+- **Безопасность:** JWT (JSON Web Tokens), bcrypt (хеширование паролей), Zod (валидация)
 
-Make sure to install dependencies:
+## 🚀 Функционал
+- Регистрация и авторизация пользователей.
+- Просмотр списка пользователей.
+- Создание личных чатов (1-на-1).
+- Отправка и получение сообщений.
+- Автообновление сообщений каждые 2 секунды (Polling).
+- Защищенные API-эндпоинты (доступ только по JWT-токену).
 
-```bash
-# npm
-npm install
+## 💻 Как запустить локально
 
-# pnpm
-pnpm install
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/kyrrami/messenger.git
+   cd messenger
+2. Установите зависимости:
+    ```
+    npm instal
+3. Создайте базу данных в PostgreSQL:
+    ```
+    CREATE DATABASE messenger;
+4. Примените схему из файла schema.sql:
+    ```
+    psql -U postgres -d messenger -f schema.sql
+5. Создайте файл .env в корне проекта и добавьте переменные (пример есть в .env.example):
+    ```
+    DATABASE_URL=postgresql://postgres:ваш_пароль@localhost:5432/messenger
+    JWT_SECRET=ваш_секретный_ключ
+6. Запустите сервер разработки:
+    ```
+    npm run dev
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Приложение будет доступно по адресу http://localhost:3000.
